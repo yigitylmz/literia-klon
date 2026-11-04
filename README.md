@@ -36,6 +36,18 @@ Kitap arama ve kapaklar yalnızca Google Books API ile çalışır; anahtar `VIT
 `.env.local` içindedir. Anahtar istemci paketine gömüldüğü için Google Cloud Console → **Credentials** bölümünden
 anahtarı **HTTP referrer** (kendi alan adın) ve **Books API** ile sınırla.
 
+## Yayına alma (Firebase Hosting)
+
+Canlı adres: **https://satir.web.app** (eski `literia-klon.web.app` adresi buraya yönlendirilir)
+
+```bash
+npm run build
+npx firebase-tools deploy --only hosting
+```
+
+> Not: Türkiye'deki internet sağlayıcıları `*.pages.dev` (Cloudflare Pages) adreslerini engelliyor;
+> bu yüzden yayın Firebase Hosting (`*.web.app`) üzerinde. Build yerelde `.env.local` ile yapılır.
+
 ## iPhone'a kurulum
 
 Uygulamayı HTTPS üzerinden yayınla (Firebase Hosting, Netlify, Vercel…) → Safari'de aç → **Paylaş → Ana Ekrana Ekle**.
