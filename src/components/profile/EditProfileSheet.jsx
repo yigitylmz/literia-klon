@@ -16,7 +16,8 @@ export function useNicknameCheck(nick, exceptUid) {
     const t = setTimeout(async () => {
       try {
         const ok = await repo.isNicknameAvailable(nick, exceptUid)
-        setState({ checking: false, available: ok, error: ok ? '' : 'Bu kullanıcı adı alınmış' })
+        // ok === null → şimdi kontrol edilemiyor (kayıt sırasında doğrulanır), hata gösterme
+        setState({ checking: false, available: ok, error: ok === false ? 'Bu kullanıcı adı alınmış' : '' })
       } catch {
         setState({ checking: false, available: null, error: '' })
       }
